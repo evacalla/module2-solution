@@ -1,4 +1,4 @@
-###Single Page Web Applicaction with AngularJS
+### Single Page Web Applicaction with AngularJS
 General Idea
 
 The idea of this assignment is to create a "check off" shopping List application.
