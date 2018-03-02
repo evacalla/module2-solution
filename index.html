@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Insert AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <!-- Insert main.css -->
+    <link rel="stylesheet" href="">
+    <title>Module2</title>
+</head>
+<body ng-app="Main">
+    <div class="container">
+        <h1>Shopping List Check Off</h1>
+              
+        <div class="row">
+              
+        <!-- To Buy List -->
+            <div class="col-md-6" ng-controller="hacerComprarControlador">
+                <h2>To Buy:</h2>
+                <ul ng-model="comprar.items">
+                    <li ng-repeat="items in comprar">
+                            Buy {{ comprar.quantily }} {{ comprar.name }
+                            <button class="btn btn-default" ng-click="comprar.comprarItem($index)"><span class="glyphicon glyphicon-ok"></span> Bought</button></li>
+                    </li>
+                </ul>
+                <div class="emptyMessage" ng-if="comprar.items.length == 0">Everything is bought!</div>
+            </div>
+              
+            
+        </div>
+    </div>
+    <!-- Module   -->
+    <script src="js/app.js"></script>
+    <!--Controller-->
+    <script src="js/controllers/MainController.js"></script>
+</body>
+</html>
