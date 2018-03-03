@@ -1,14 +1,10 @@
-app.controller('hacerComprarControlador', [ 'listaComprar', '$scope', function(listaComprar, $scope){
-    var comprar = this;
-    $scope.comprarItems = listaComprar.getItemsComprar();
-    comprar.comprarItem = function(index){
-        listaComprar.comprarItem(index);
+app.controller('hacerComprarCtrl', ['$scope', 'listaService', function($scope, listaService){
+    $scope.items = listaService.getItemsComprar();
+    $scope.comprarItem = function(index){
+        listaService.comprarItem(index);
     };
 }]);
 
-app.controller('compradoControlador', ['listaComprar', '$scope', function(listaComprar, $scope){
-    var comprado = this;
-    $scope.compradoItems = listaComprar.getItemsComprado();
+app.controller('compradoCtrl', ['$scope', 'listaService', function($scope, listaService){
+    $scope.items = listaService.getItemsComprado();
 }]);
-
-

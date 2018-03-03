@@ -6,34 +6,47 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Insert AngularJS -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-    <!-- Insert main.css -->
-    <link rel="stylesheet" href="">
     <title>Module2</title>
 </head>
-<body ng-app="Main">
+<body ng-app="main">
     <div class="container">
         <h1>Shopping List Check Off</h1>
               
         <div class="row">
               
         <!-- To Buy List -->
-            <div class="col-md-6" ng-controller="hacerComprarControlador">
+            <div class="col-md-6" ng-controller="hacerComprarCtrl">
                 <h2>To Buy:</h2>
-                <ul ng-model="comprar.items">
-                    <li ng-repeat="items in comprar">
-                            Buy {{ comprar.quantily }} {{ comprar.name }
-                            <button class="btn btn-default" ng-click="comprar.comprarItem($index)"><span class="glyphicon glyphicon-ok"></span> Bought</button></li>
+                <ul>
+                    <li ng-repeat="items in items">
+                            Buy {{ items.quantity }} {{ items.name }} 
+                            <button class="btn btn-default" ng-click="comprarItem($index)"><span class="glyphicon glyphicon-ok"></span> Bought</button>
+                    </li>
+                </ul> 
+                <div class="emptyMessage" ng-if="!items.length">Everything is bought!</div>
+            </div>
+
+            <!-- Alredy Bought List-->
+            <div class="col-md-6" ng-controller="compradoCtrl">
+                <h2>Alredy Bought:</h2>
+                <ul>
+                    <li ng-repeat="items in items">
+                            Buy {{ items.quantity }} {{ items.name }}
                     </li>
                 </ul>
-                <div class="emptyMessage" ng-if="comprar.items.length == 0">Everything is bought!</div>
-            </div>
-              
+                <div class="emptyMessage" ng-if="!items.length">Nothing bought yet.</div>
+            </div>  
             
         </div>
     </div>
+
+
     <!-- Module   -->
     <script src="js/app.js"></script>
-    <!--Controller-->
-    <script src="js/controllers/MainController.js"></script>
+    <!-- Controllers -->
+    <script src="js/controllers/mainController.js"></script>
+    <!-- Services -->
+    <script src="js/services/listaComprar.js"></script>
+
 </body>
 </html>
